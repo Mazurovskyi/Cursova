@@ -1,0 +1,51 @@
+
+<style>
+    .login{
+        width: 30%;
+        border: 1px solid grey;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px; 
+        margin: 50px;
+        padding: 50px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto
+    }
+    .login:hover {
+        box-shadow: 9px 9px 9px;
+    }
+    .font-size-30 {
+        font-size: 30px;
+    }
+    input {
+        height: 60px;
+        font-size: 25px;
+        margin: 0px 0px 10px 0px;
+    }
+</style>
+
+<div>
+    <% include ./components/header.html %>
+</div>
+<div class="login">
+    <form method="post" action="/login">
+        <div class="form-group">
+            <label for="name" class="font-size-30">Name</label>
+            <input name="name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="lastname" class="font-size-30">lastname</label>
+            <input name="lastname" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="font-size-30">Email address</label>
+          <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else. Hah, we dont really fucking care </small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1" class="font-size-30">Password</label>
+          <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-dark font-size-30">Submit</button>
+      </form>
+</div>

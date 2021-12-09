@@ -1,0 +1,19 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+}
+
+html, 
+body {
+    height: 100%;
+}
+
+.stfont{
+    font-size: 30px;
+}
+
+.cus-container{
+    margin: 0px 15% 0px 15%;
+}

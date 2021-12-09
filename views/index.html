@@ -1,0 +1,22 @@
+<style>
+    #main_photo {
+            width: 100%;
+            height: calc(100vh - 140px);
+            background-image: url('./photos/ph1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+    }
+</style>
+
+<head>
+    <title><%=title %></title>
+    <meta charset="utf-8" />
+</head> 
+<body>
+    <div>
+        <% include ./components/header.html %>
+    </div>
+<div>
+    <div alt="main_photo" id="main_photo"></div>
+</div>
+</body>

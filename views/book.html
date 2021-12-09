@@ -1,0 +1,308 @@
+
+    <style>
+
+        .box-wrapper {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .room-info {
+            width: 840px;
+            height: 810px;
+            border: 1px solid grey;
+            border-radius: 5px;
+            margin: 15vh 10px 10px 10px;
+            padding: 10px 20px 10px 20px;
+        }
+        .dataBlock-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .room-photo{
+            width: 93%;
+            min-height: 400px;
+            border: 1px solid grey;
+            border-radius: 10px;
+            margin: 25px;
+            padding: 10px;
+            box-shadow: 3px 3px 3px;
+            background-repeat: no-repeat;
+            background-size: cover; /*contain*/;
+            /* background-image: url('./photos/room.jpg'); */
+        }
+
+        .room-info .dataBlock{
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .room-info .dataBlock .infoData{
+            width: 40%;
+            border: 1px solid grey;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 3px 3px 3px;
+        }
+
+        .room-info .dataBlock .infoForm{
+            width: 40%;
+            border: 1px solid grey;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 3px 3px 3px;
+        }
+
+        .room-info .dataBlock .infoForm #bookSubmitFrom{
+            display: flex;
+            padding: 20px;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .selectors-wrapper{
+            display: flex;
+            justify-content: space-evenly;
+            margin: 0px 0px 30px 0px;
+        }
+
+        .room rect {
+            fill-opacity: 0;
+            pointer-events: all;
+        }
+
+        .room text {
+            font-size: 70px;
+            fill: #fff;
+            stroke: #000;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+             user-select: none;
+        }
+
+        .room:hover rect{
+            fill-opacity: 0.7;
+        }
+
+      .plan {
+            width: 840px;
+            height: 840px;
+            background-image: url('./photos/hotel_plan.jpg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin: 15vh 10px 10px 10px;
+            box-shadow: 3px;
+        }
+
+        .free rect {
+            fill: #00ff37;
+        }
+
+        .booked rect {
+            fill: #ff0033;
+        }
+
+        .room-info p {
+            font-size: 20px;
+        }
+
+        .faliled-validate {
+            border: 4px solid red;
+        }
+    </style>
+<head>
+    <title><%=title %></title>
+    <meta charset="utf-8" />
+</head>
+<%
+    const getClassRoomStr = (val) => {
+        if (!val) return 'room booked';
+        return 'room free';
+    }
+%>
+<body>
+    <div>
+        <% include ./components/header.html %>
+    </div>
+    <div class="box-wrapper">
+        <div class="plan">
+            <svg width="840" height="840" id="roomsMap">
+                <g class="<%- getClassRoomStr(rooms[1].booked) %>" data-id="18">
+                    <rect class="section" height="85" width="297" y="715" x="585"/>
+                    <rect class="section" height="195" width="197" y="605" x="640"/>
+                    <text y="730" x="690">18</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[2].booked) %>" data-id="17">
+                    <rect class="section" height="95" width="197" y="505" x="640"/>
+                    <text y="580" x="690">17</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[3].booked) %>" data-id="16">
+                    <rect class="section" height="100" width="197" y="405" x="640"/>
+                    <text y="480" x="690">16</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[4].booked) %>" data-id="15">
+                    <rect class="section" height="100" width="197" y="305" x="640"/>
+                    <text y="380" x="690">15</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[5].booked) %>" data-id="14">
+                    <rect class="section" height="100" width="197" y="200" x="640"/>
+                    <text y="280" x="690">14</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[6].booked) %>" data-id="13">
+                    <rect class="section" height="110" width="268" y="2" x="580"/>
+                    <rect class="section" height="100" width="248" y="100" x="640"/>
+                    <text y="130" x="690">13</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[7].booked) %>" data-id="12">
+                    <rect class="section" height="195" width="110" y="2" x="475"/>
+                    <text y="130" x="485">12</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[8].booked) %>" data-id="11">
+                    <rect class="section" height="195" width="110" y="2" x="365"/>
+                    <text y="130" x="380">11</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[9].booked) %>" data-id="10">
+                    <rect class="section" height="195" width="110" y="2" x="260"/>
+                    <text y="130" x="275">10</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[10].booked) %>" data-id="9">
+                    <rect class="section" id="svg_1" height="195" width="195" y="2" x="2"/>
+                    <rect class="section" height="95" width="256" y="5" x="2"/>
+                    <text y="130" x="55">9</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[11].booked) %>" data-id="8">
+                    <rect class="section" height="100" width="197" y="200" x="2"/>
+                    <text y="270" x="55">8</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[12].booked) %>" data-id="7">
+                    <rect class="section" height="100" width="197" y="304" x="2"/>
+                    <text y="375" x="55">7</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[13].booked) %>" data-id="6">
+                    <rect class="section" height="100" width="197" y="401" x="2"/>
+                    <text y="470" x="55">6</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[14].booked) %>" data-id="5">
+                    <rect class="section" height="100" width="197" y="500" x="2"/>
+                    <text y="575" x="55">5</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[15].booked) %>" data-id="4">
+                    <rect class="section" height="103" width="265" y="700" x="2"/>
+                    <rect class="section" id="svg_1" height="195" width="195" y="605" x="2"/>
+                    <text y="720" x="55">4</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[16].booked) %>" data-id="3">
+                    <rect class="section" height="200" width="110" y="600" x="255" />
+                    <text y="720" x="295">3</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[17].booked) %>" data-id="2">
+                    <rect class="section" height="200" width="110" y="600" x="365" />
+                    <text y="720" x="400">2</text>
+                </g>
+                <g class="<%- getClassRoomStr(rooms[18].booked) %>" data-id="1">
+                    <rect class="section" height="200" width="110" y="600" x="470" />
+                    <text y="720" x="505">1</text>
+                </g>
+            </svg>
+        </div>
+        <% if (roomInfo) { %>
+            <div class="room-info">
+                <button type="button" class="btn-close" id="btn-close" aria-label="Close"></button>
+                <div class="dataBlock-wrapper">
+                    <div class="dataBlock">
+                        <div class="infoData">
+                            <p>Ціна: <%= get(roomInfo, 'price', 'ціна не вказана') %> </p>
+                            <p>Спальні місця: <%= get(roomInfo, 'bed_count', 'кількість місць не вказана') %> </p>
+                           <% if (get(roomInfo, 'booked', '')) { %>
+                                <p>Зайнятий</p>
+                           <% } else { %>
+                                <p>Вільний до бронювання</p>
+                            <% } %>
+                        </div>
+                        <div class="infoForm">
+                        <% if (!roomInfo?.booked) { %>
+                            <form method="post" id="bookSubmitFrom">
+                                <div class="selectors-wrapper">
+                                    <select name="hours" id="hours-select">
+                                        <option selected value="0">без годин</option>
+                                        <option value="1">1 година</option>
+                                        <option value="2">2 години</option>
+                                        <option value="4">4 година</option>
+                                        <option value="8">8 годин</option>
+                                    </select>
+                                    <select name="days" id="days-select">
+                                        <option selected value="0">без днів</option>
+                                        <option value="1">1 день</option>
+                                        <option value="2">2 дні</option>
+                                        <option value="3">3 дні</option>
+                                        <option value="4">4 дні</option>
+                                        <option value="5">5 днів</option>
+                                        <option value="8">6 днів</option>
+                                        <option value="8">7 днів</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-dark" id="bookBtn"> Забронювати </button>
+                            </form>
+                        <% } else if (roomInfo.room_id === 4) { %>
+                            <p> Oh, shit i`m sorry </p>
+
+                        <% } else if (isYourRoom) {%>
+                            <p> Кімната заброньована вами <%= userName %></p>
+                        <% } else { %>
+                            <p> Вибачте, кімната на разі заброньована </p>
+                        <% } %> 
+                        </div>
+                    </div>
+                    <div class="room-photo" style="background-image: url('./photos/room<%= roomInfo.room_id%>.jpg');"></div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+    <script>
+        const rooms = document.querySelectorAll(".room");
+        const closeBtn = document.querySelector("#btn-close");
+        const bookSubmitFrom = document.querySelector("#bookSubmitFrom");
+        const roomInfo = <%- JSON.stringify(roomInfo) %>;
+
+        for(const room of rooms) {
+            room.addEventListener('click', async (e) => {
+                window.location.assign(`http://localhost:3000/book?room=${room.dataset.id}`);
+            })
+        }
+        closeBtn.addEventListener('click', () => {
+            window.location.assign(`http://localhost:3000/book`);
+        });
+        bookSubmitFrom.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const [bookDays, bookHours] = [e.target.days.value, e.target.hours.value];
+            if(+bookDays || +bookHours){
+                const roomInfoBlock = document.querySelector('.infoForm');
+                if(roomInfoBlock.classList.contains('faliled-validate')){
+                roomInfoBlock.classList.remove('faliled-validate');
+            }
+                await fetch('http://localhost:3000/book', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json;charset=utf-8'
+                    },
+                    body: JSON.stringify({ 
+                        roomInfo,
+                        bookDays,
+                        bookHours,
+                    })
+                });
+        } else {
+            const roomInfoBlock = document.querySelector('.infoForm');
+           
+            if(!roomInfoBlock.classList.contains('faliled-validate')){
+                roomInfoBlock.classList.add('faliled-validate');
+            }
+        }
+        });
+        
+    </script>
+</body>

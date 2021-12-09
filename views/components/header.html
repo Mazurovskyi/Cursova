@@ -1,0 +1,50 @@
+
+<style>
+    .hfont {
+        font-size: 30px;
+    }
+    .nfont {
+        font-size: 30px;
+    }
+    .title {
+      font-size: 35px;
+    }
+    .nav-i {
+      cursor: pointer;
+    }
+    a:hover{
+      color: white;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #926060;">
+    <div class="container">
+      <a class="navbar-brand title" href="#">Welcome to Grand Dungeon</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarSupportedContent">
+            <div class="active nfont nav-i" aria-current="page"><a href="/">Головна</a></div>
+            <div class="nfont nav-i"><a href="/book">Бронювання</a></div>
+            <div class="nfont nav-i"><a href="/about">Про нас</a></div>
+            <% if(!isUserLoggedIn) { %>
+              <div class="nfont nav-i"><a href="/login">Увійти</a></div>
+            <% } else { %>
+              <div class="nfont nav-i" id="logoutBtn" >Вийти</div>
+            <% } %>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    document.querySelector('#logoutBtn').addEventListener('click', async () => {
+      console.log('clicked');
+      await fetch('http://localhost:3000/logout', {
+        method: "POST",
+      });
+    })
+  </script>

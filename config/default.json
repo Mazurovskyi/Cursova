@@ -1,0 +1,8 @@
+{
+    "Server": {
+        "Port": 3000
+    },
+    "Mongo": {
+        "Auth": "vladpanchuk:vlad300800V"
+    }
+}
